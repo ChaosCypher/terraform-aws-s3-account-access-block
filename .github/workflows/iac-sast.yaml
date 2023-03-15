@@ -1,0 +1,25 @@
+---
+name: sast
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  scan:
+    name: scan
+    runs-on: ubuntu-22.04
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: tfsec
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.3.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
