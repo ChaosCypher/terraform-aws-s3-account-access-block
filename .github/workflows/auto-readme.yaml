@@ -22,7 +22,6 @@ jobs:
       - name: render terraform readme
         uses: terraform-docs/gh-actions@v1.0.0
         with:
-          args: --sort-by-required
           outputfile: README.md
           indention: 3
           git-push: true
