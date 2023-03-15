@@ -20,4 +20,3 @@ jobs:
         with:
           api-key: ${{ secrets.BC_API_KEY }}
           download_external_modules: true
-          framework: terraform
