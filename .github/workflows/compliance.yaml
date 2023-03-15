@@ -1,0 +1,21 @@
+---
+name: compliance
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  scan:
+    name: scan
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: run bridgecrew
+        id: Bridgecrew
+        uses: bridgecrewio/bridgecrew-action@master 
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
